@@ -27,6 +27,6 @@ private:
 
 
 
-    void createTabs();
+    void createInterfaceTabs();
 };
 #endif // WIDGET_H

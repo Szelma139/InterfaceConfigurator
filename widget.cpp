@@ -13,10 +13,9 @@ Widget::Widget(QWidget *parent)
     ui->setupUi(this);
     interfaceConfigurator = new InterfaceConfigurator(this);
 
-    createTabs();
+    createInterfaceTabs();
 
     //ui->tabWidget->addTab(tabPointer,"test");
-
 
 
 }
@@ -27,7 +26,7 @@ Widget::~Widget()
 }
 
 
-void Widget::createTabs(){
+void Widget::createInterfaceTabs(){
 
         QStringList tabs = interfaceConfigurator->fetchInterfaceNames();
 
