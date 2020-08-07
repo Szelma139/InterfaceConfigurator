@@ -13,7 +13,6 @@ Widget::Widget(QWidget *parent)
     ui->setupUi(this);
     interfaceConfigurator = new InterfaceConfigurator(this);
 
-
     createTabs();
 
     //ui->tabWidget->addTab(tabPointer,"test");
@@ -33,8 +32,9 @@ void Widget::createTabs(){
         QStringList tabs = interfaceConfigurator->fetchInterfaceNames();
 
         for (int i=0;i<tabs.length();i++){
-            tabPointer = new InterfaceTab(this);
-            ui->tabWidget->addTab(tabPointer,QString::number(i+1)+ ". " + tabs[i]);
+           InterfaceTab * tabPointer = new InterfaceTab(this);
+           p_tabs.append(tabPointer);
+            ui->tabWidget->addTab(p_tabs[i],QString::number(i+1)+ ". " + tabs[i]);
         }
 
 

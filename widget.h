@@ -20,7 +20,8 @@ public:
 
 private:
     Ui::Widget *ui;
-    InterfaceTab * tabPointer;
+    //InterfaceTab * tabPointer;
+    QList<InterfaceTab *> p_tabs;
     InterfaceConfigurator * interfaceConfigurator;
 
 
