@@ -9,7 +9,7 @@
 #include <QFile>
 
 
-QString NETWORK_FILE = "/etc/network/interfaces-test";
+QString NETWORK_FILE = "/etc/network/interfaces";
 
 InterfaceConfigurator::InterfaceConfigurator(QObject * parent)
     :QObject(parent)
@@ -54,7 +54,6 @@ QStringList InterfaceConfigurator::fetchInterfaceNames(){
 
         for (QString & element: elements){
             element = element.mid(3,element.length()-3);
-         //   qDebug()<<"elment"<<element;
         }
     }
 
@@ -62,30 +61,6 @@ QStringList InterfaceConfigurator::fetchInterfaceNames(){
 
     QStringList fileContents;
 
-    /*
-    QStringList possibleValues = {"iface", "mapping", "allow", "source"};
-    QStringList list = {};
-
-    QFile inputFile(NETWORK_FILE);
-    if (inputFile.open(QIODevice::ReadOnly))
-    {
-       QTextStream in(&inputFile);
-       while (!in.atEnd())
-       {
-           QString line = in.readLine();
-            if(line.startsWith("iface") || line.startsWith("auto"))
-            {
-
-            }
-            else {
-                list.append(line);
-
-            }
-
-       }
-
-    }
-*/
 
     QFile inputFile(NETWORK_FILE);
     if (inputFile.open(QIODevice::ReadOnly))
@@ -96,7 +71,7 @@ QStringList InterfaceConfigurator::fetchInterfaceNames(){
             QString line = in.readLine();
             if(!line.isEmpty() || !line.startsWith("#") || (!line.contains("lo"))){
                     fileContents.append(line);
-
+            qDebug()<<line;
             }
 
         }
@@ -105,6 +80,7 @@ QStringList InterfaceConfigurator::fetchInterfaceNames(){
 
         QString currentLine;
         int stringLines= fileContents.length()-1;
+        qDebug()<<"sttring lines"<<stringLines;
         int i = 0 ;
         while(i!=stringLines){
             currentLine = fileContents[i];
@@ -115,7 +91,9 @@ QStringList InterfaceConfigurator::fetchInterfaceNames(){
 
                 //qDebug()<<"Auto - " + fileContents[i];
                 for (QString interfaceName:elements){
+
                     if (fileContents[i].contains(interfaceName)){
+
                         automatic->setName(interfaceName);
                     }
 
@@ -129,6 +107,7 @@ QStringList InterfaceConfigurator::fetchInterfaceNames(){
                 Interface * manual = new Interface ();
 
                 for (QString interfaceName:elements){
+                           qDebug()<<fileContents[i] <<interfaceName;
                     if (fileContents[i].contains(interfaceName)){
                         manual->setName(interfaceName);
                     }
