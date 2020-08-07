@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget</class>
+ <widget class="QWidget" name="Widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Widget</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+background-color:black;
+color: gray;
+selection-background-color:#186370;
+selection-color: #c5ba94;
+}
+
+
+QMenu{
+font-size:17px;
+font-weight: bold;
+width: 150px;
+left: 35px;
+color: white;
+background-color:#21a0b7;
+}
+
+QToolButton {
+border-radius: 10px;
+color:white;
+border: 1px solid #0f4b50;
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+stop: 0 #21a0b7, stop: 1.0 #186370);
+}
+
+QToolButton:pressed{
+border-radius: 10px;
+color:white;
+border: 1px solid #161d1e;
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+stop: 0 #0b393d, stop: 1.0 #105256);
+}
+
+QToolButton:disabled{
+border-radius: 10px;
+color:#6F9499;
+border: 1px solid #161d1e;
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+stop: 0 #283233, stop: 1.0 #283233);
+}
+
+QLineEdit {
+border-radius: 10px;
+border: 2px solid qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+stop: 0 #21a0b7, stop: 1.0 #186370);
+}
+
+
+QRadioButton::indicator::unchecked {
+    image: url(://data/icons/btn_radiobutton_unchecked.png);
+}
+
+QRadioButton::indicator:unchecked:hover {
+    image: url(://data/icons/btn_radiobutton_checked_active.png);
+}
+
+
+QTabBar::tab {
+
+margin-right:15px;
+padding:10px;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+stop: 0 #21a0b7, stop: 1.0 #186370);
+color: white;
+margin-right: 15px;
+
+border-radius:20px;
+}
+QTabBar::tab:selected {
+border-color: #9B9B9B;
+border-bottom-color: #C2C7CB; /* same as pane color */
+border-radius:10px;
+}
+QTabBar::tab:!selected {
+margin-top: 2px; /* make non-selected tabs look smaller */
+}
+
+</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>1025</width>
+     <height>64</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Konfiguracja IP - Interfejsy</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButtonClose">
+   <property name="geometry">
+    <rect>
+     <x>2</x>
+     <y>642</y>
+     <width>487</width>
+     <height>102</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Anuluj</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/data/icons/ico_buttons/ico_cancel.png</normaloff>:/data/icons/ico_buttons/ico_cancel.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>64</width>
+     <height>64</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButtonSave">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>640</y>
+     <width>487</width>
+     <height>102</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Akceptuj</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/data/icons/ico_buttons/ico_accept.png</normaloff>:/data/icons/ico_buttons/ico_accept.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>64</width>
+     <height>64</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
+   <property name="arrowType">
+    <enum>Qt::NoArrow</enum>
+   </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>80</y>
+     <width>951</width>
+     <height>531</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="currentIndex">
+    <number>-1</number>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
